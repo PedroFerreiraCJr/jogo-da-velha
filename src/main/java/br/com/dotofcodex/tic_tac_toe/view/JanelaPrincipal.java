@@ -18,18 +18,19 @@ public class JanelaPrincipal extends JFrame {
 
 	private Field ticTacToe;
 	private boolean first = false;
-	private FieldObserver observer = new FieldObserver() {
-		@Override
-		public void update(Player player, int line, int col) {
-			System.out.println(
-					"Jogada completada pelo player: " + player.getSymbol() + ", na posição: " + line + ":" + col);
-		}
-	};
+	private FieldObserver observer;
 
 	public JanelaPrincipal() {
 		super("Jogo da Velha");
 		this.ticTacToe = new Field();
 		this.ticTacToe.init();
+		this.observer = new FieldObserver() {
+			@Override
+			public void update(Player player, int line, int col) {
+				System.out.println(
+						"Jogada completada pelo player: " + player.getSymbol() + ", na posição: " + line + ":" + col);
+			}
+		};
 		this.ticTacToe.addFieldObserver(observer);
 		init();
 		buildStage();
@@ -56,10 +57,10 @@ public class JanelaPrincipal extends JFrame {
 				} else {
 					player = ticTacToe.getPlayerOfTurn();
 				}
-				
+
 				try {
 					ticTacToe.play(player, line, col);
-				} catch(RuntimeException e) {
+				} catch (RuntimeException e) {
 					JOptionPane.showMessageDialog(JanelaPrincipal.this, e.getMessage());
 				}
 			}

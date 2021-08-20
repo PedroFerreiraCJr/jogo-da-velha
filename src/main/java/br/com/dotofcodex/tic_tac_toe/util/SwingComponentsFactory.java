@@ -22,7 +22,7 @@ public class SwingComponentsFactory {
 		return button;
 	}
 
-	public static JButton getProxyJButtonInstance(String text, int line, int col) {
+	public static JButton getFieldJButtonInstance(String text, int line, int col) {
 		FieldJButton button = new FieldJButton(text, line, col);
 		button.setFont(new Font("Arial", Font.PLAIN, 50));
 		return button;
@@ -34,7 +34,7 @@ public class SwingComponentsFactory {
 	}
 
 	public static void applyCenterAlignmentToJButton(JButton button) {
-		button.setHorizontalAlignment(JLabel.CENTER);
-		button.setVerticalAlignment(JLabel.CENTER);
+		button.setHorizontalAlignment(JButton.CENTER);
+		button.setVerticalAlignment(JButton.CENTER);
 	}
 }

@@ -10,7 +10,7 @@ public class JanelaPrincipalHelper {
 		JButton button = null;
 		for (int line = 0; line < 3; line++) {
 			for (int col = 0; col < 3; col++) {
-				button = SwingComponentsFactory.getProxyJButtonInstance("", line, col);
+				button = SwingComponentsFactory.getFieldJButtonInstance("", line, col);
 				SwingComponentsFactory.applyCenterAlignmentToJButton(button);
 				button.addActionListener(handler);
 				panel.add(button);
